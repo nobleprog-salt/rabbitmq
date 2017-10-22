@@ -3,13 +3,13 @@
 require "bunny"
 
 conn = Bunny.new(:host        => "34.215.45.93",
-                 :vhost       => "mov",
+                 :vhost       => "movies",
                  :user        => "jerry",
                  :password    => "jerry")
 
 conn.start
 ch   = conn.create_channel
-q    = ch.queue("mov_logs", :durable => true)
+q    = ch.queue("movie_logs", :durable => true)
 begin
   puts " [*] Waiting for messages. To exit press CTRL+C"
   q.subscribe(:block => true) do |delivery_info, properties, body|

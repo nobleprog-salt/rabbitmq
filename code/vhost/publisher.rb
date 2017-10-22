@@ -3,16 +3,16 @@
 require "bunny"
 
 conn = Bunny.new(:host        => "34.215.45.93",
-                 :vhost       => "mov",
+                 :vhost       => "movies",
                  :user        => "jerry",
                  :password    => "jerry")
 
 conn.start
 ch   = conn.create_channel
-#q    = ch.queue("mov_logs", :durable => true)
-q    = ch.queue("mov_logs")
+#q    = ch.queue("movie_logs", :durable => true)
+q    = ch.queue("movie_logs")
 
-ch.default_exchange.publish("This is an mov message", :routing_key => q.name)
-puts " [x] Sent 'This is an mov message'"
+ch.default_exchange.publish("This is a movie message", :routing_key => q.name)
+puts " [x] Sent 'This is a movie message'"
 
 conn.close
