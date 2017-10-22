@@ -2,15 +2,13 @@
 # encoding: utf-8
 require "bunny"
 
-conn = Bunny.new(:host        => "34.215.45.93",
+conn = Bunny.new(:host        => "54.169.56.245",
                  :user        => "admin",
                  :password    => "admin")
 
 conn.start
 ch   = conn.create_channel
-q    = ch.queue("first_que")
-
-ch.default_exchange.publish("Hello World!", :routing_key => q.name)
+q    = ch.queue("second_que", :durable => true)
 
 ch.default_exchange.publish("Hello World !",
           :routing_key => "#{q.name}",
@@ -26,7 +24,7 @@ ch.default_exchange.publish("Hello World !",
             },
             :time         => Time.now,
             :participants => 11,
-            :venue        => "Stockholm",
+            :venue        => "Singapore",
             :true_field   => true,
             :false_field  => false,
             :nil_field    => nil,
