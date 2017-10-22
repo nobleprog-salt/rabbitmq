@@ -1,12 +1,3 @@
-## RabbitMQ
-```sh
-$> echo 'deb http://www.rabbitmq.com/debian/ testing main' |      sudo tee /etc/apt/sources.list.d/rabbitmq.list
-$> wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -
-$> apt-get update
-$> apt-get install rabbitmq-server
-$> service rabbitmq-server status
-```
-
 ### Enable HTTP management console
 ```ssh
 $> sudo rabbitmq-plugins enable rabbitmq_management
