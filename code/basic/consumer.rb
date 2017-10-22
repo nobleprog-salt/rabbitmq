@@ -8,7 +8,7 @@ conn = Bunny.new(:host        => "34.215.45.93",
 
 conn.start
 ch   = conn.create_channel
-q    = ch.queue("first_que", :durable => true)
+q    = ch.queue("first_que")
 begin
   puts " [*] Waiting for messages. To exit press CTRL+C"
   q.subscribe(:block => true) do |delivery_info, properties, body|
