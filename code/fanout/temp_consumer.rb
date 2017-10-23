@@ -2,19 +2,19 @@
 # encoding: utf-8
 require "bunny"
 
-conn = Bunny.new(:host        => "34.215.45.93",
-                 :vhost       => "mov",
+conn = Bunny.new(:host        => "54.169.56.245",
+                 :vhost       => "movies",
                  :user        => "jerry",
                  :password    => "jerry")
 
 conn.start
 ch   = conn.create_channel
-x    = ch.fanout("top_rev_exchange", :durable => true)
+x    = ch.fanout("top_reviews_exchange", :durable => true)
 q    = ch.queue("", :exclusive => true)
 q.bind(x)
 
 begin
-  puts " [*] Waiting for messages from ip_top_rev. To exit press CTRL+C"
+  puts " [*] Waiting for messages from top_reviews_exchange. To exit press CTRL+C"
   q.subscribe(:block => true) do |delivery_info, properties, body|
     puts " [x] Received #{body}"
   end
