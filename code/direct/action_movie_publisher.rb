@@ -4,8 +4,8 @@ require "bunny"
 
 conn = Bunny.new(:host        => "54.169.201.143",
                  :vhost       => "movies",
-                 :user        => "jerry",
-                 :password    => "jerry")
+                 :user        => "moviepublisher",
+                 :password    => "moviepublisher")
 
 conn.start
 ch   = conn.create_channel

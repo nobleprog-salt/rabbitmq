@@ -2,7 +2,7 @@
 # encoding: utf-8
 require "bunny"
 
-conn = Bunny.new(:host        => "34.215.45.93",
+conn = Bunny.new(:host        => "54.169.201.143",
                  :user        => "admin",
                  :password    => "admin")
 
