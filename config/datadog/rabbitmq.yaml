@@ -1,9 +1,9 @@
 init_config:
 
 instances:
-  - rabbitmq_api_url: http://34.215.45.93:15672/api/
-    rabbitmq_user: jerry # if your rabbitmq API requires auth; default is guest
-    rabbitmq_pass: jerry # default is guest
+  - rabbitmq_api_url: http://54.169.201.143:15672/api/
+    rabbitmq_user: admin # if your rabbitmq API requires auth; default is guest
+    rabbitmq_pass: admin # default is guest
 #   tag_families: true           # default is false
     vhosts:
-      - mov
+      - movies
