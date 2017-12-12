@@ -3,11 +3,10 @@
 require "bunny"
 
 conn = Bunny.new(:tls                   => true,
-                 :tls_cert              => "/home/ubuntu/ssl/client/cert.pem",
-                 :tls_key               => "/home/ubuntu/ssl/client/key.pem",
-                 :tls_ca_certificates   => ["/home/ubuntu/ssl/cacert.pem"],
-                 :hosts                 => ["ip-172-31-44-223.us-west-2.compute.internal",
-                                            ""],
+                 :tls_cert              => "/home/ubuntu/client/cert.pem",
+                 :tls_key               => "/home/ubuntu/client/key.pem",
+                 :tls_ca_certificates   => ["/home/ubuntu/testca/cacert.pem"],
+                 :hosts                 => ["ip-172-31-1-22.ap-southeast-1.compute.internal"],
                  :port                  => 5671,
                  :vhost                 => "/",
                  :user                  => "admin",
